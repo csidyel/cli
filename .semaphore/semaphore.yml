@@ -30,3 +30,9 @@ blocks:
             - make go.get
             - goreleaser check
             - goreleaser release --snapshot --rm-dist
+
+promotions:
+  - name: Staging deploy
+    pipeline_file: release.yml
+    auto_promote:
+      when: "result = 'passed'"
